@@ -6,7 +6,7 @@
 /*   By: leaugust <leaugust@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 14:07:13 by leaugust          #+#    #+#             */
-/*   Updated: 2024/10/13 02:58:40 by leaugust         ###   ########.fr       */
+/*   Updated: 2024/10/14 12:25:41 by leaugust         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,8 @@ char	**parse_map(int fd, t_data *data)
 	if (!map_string)
 		return (NULL);
 	data->map = ft_split(map_string, '\n');
+	if (!data->map)
+		return (0);
 	free(map_string);
 	ft_check_content(data);
 	if (!ft_check_format(data->map, data) || !check_map(data->map, data))
